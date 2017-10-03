@@ -1,0 +1,261 @@
+@import 'settings';
+$red: #ee3c2d;
+$brown: #883a35;
+$gray: #dddddd;
+#react_faculty{
+    #SelectorABC{
+        padding: 10px 15px;
+      margin-top: 0px;
+      @include transition(all .4s ease);
+      &.inactive{
+        opacity: .5;
+      }
+      ul{
+        padding-left: 0px;
+      }
+        li{
+            cursor: pointer;
+            padding: 5px;
+            text-transform: uppercase;
+            //font-weight: bold;
+            color: $red;
+          @include transition(all .4s ease);
+          &:hover,&.active{
+                background-color: $red;
+                color:white;
+                border-radius: 5px;
+            }
+        }
+
+    }
+    #SelectRegion{
+      //border-bottom: solid 1px $gray;
+      margin-bottom: 15px;
+      ul{ padding-left: 15px; }
+      li{
+        color: $red;
+        padding: 5px 15px;
+        background: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        @include transition(all .4s ease);
+        border: 1px solid white;
+        border-bottom-color: $gray;
+        //border: solid 2px $gray;;
+        //border-bottom:none;
+
+        &.active{
+          border: 1px solid $gray;
+          border-bottom-color: transparent;
+          color: $brown;
+        }
+      }
+    }
+    .list-item{
+        //border:solid thin #8c8c8c;
+        border-bottom: none;
+        border-right:none;
+        padding-bottom: 15px;
+        //min-height: 120px;
+      h5{
+        margin-bottom: 5px;
+      }
+      p{
+        margin-bottom: 0px;
+      }
+    }
+  #SelectCountry{
+    .dropdown-menu{
+      padding: 0px;
+      padding-left: 0px;
+      overflow: hidden;
+      min-width: 350px;
+      z-index: 20;
+      @media screen and (max-width:$mdBreak){
+        min-width: 250px;
+      }
+
+      h2{
+        color: $red;
+        padding: 15px;
+        margin: 0px;
+        font-size: 20px;
+      }
+      ul{
+        list-style: none;
+        width: 100%;
+        display: block;
+        padding-left: 0px;
+        li{
+          padding: 5px 15px 5px 15px;
+          float:left;
+          width: 33%;
+          @media screen and (max-width:$mdBreak){
+            width: 50%;
+          }
+          display: inline;
+          //background-color: gray;
+          cursor: pointer;
+          color:$red;
+          @include transition(all .4s ease);
+          &:hover,&.active{
+            color: $brown;
+            font-weight: bold;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  .activeCountry{
+    padding-left: 15px;
+    color: $brown;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-weight: 400;
+    font-style: normal;
+    color: #883a35;
+    font-size: 18px;
+  }
+
+  .fa-circle-o-notch,.fa-spinner{
+    color: $red;
+  }
+
+  .list-item h5{
+    color: $red;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline
+    }
+  }
+
+  .row.is-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .row.is-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*
+  * And with max cross-browser enabled.
+  * Nobody should ever write this by hand.
+  * Use a preprocesser with autoprefixing.
+  */
+  .row.is-flex, ul.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .row.is-flex > [class*='col-'],ul.is-flex > li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .modal{
+    background-color: rgba(0,0,0,.5);
+    display: block;
+    opacity: 0;
+    height: 0%;
+    .modal-header{
+      text-align: right;
+      padding: 0px 0px;
+      border:none;
+      .modal-header .close {
+        margin-top: 0px;
+      }
+    }
+    .modal-dialog{
+      //height: 380px;
+      //overflow: scroll;
+    }
+    .fa-spinner{
+      margin: 10px 10px;
+    }
+
+    @include transition(opacity .4s ease);
+    &.in{
+      @include transition(opacity .4s ease);
+      opacity: 1;
+      display: block;
+      height: 100%;
+    }
+    .modal-body{
+      padding: 0px;
+    }
+    iframe {
+      height: 70vh;
+      width: 100%;
+      border: none;
+    }
+    .modal-content{
+      border-radius: 0px;
+      padding: 20px;
+    }
+
+
+
+  }
+
+  #details-wrapper{
+    p{
+      span{
+        display: block;
+      }
+    }
+  }
+  #SearchFaculty {
+    text-align: right;
+    label{
+      margin: 0px;
+      margin-right: 5px;
+      height: 34px;
+
+      font-size: 14px;
+      line-height: 34px;
+    }
+    input{
+      width: 200px;
+    }
+    .form-group{
+      margin-bottom: 0px;
+      @media screen and (max-width:$smBreak){
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+
+
+} //end of wrapper
+
+.page-header {
+  padding: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+  border:none;
+  h2{
+    margin: 0px;
+    padding: 0px;
+    color: $red;
+    @media screen and (max-width:$smBreak){
+      margin-bottom: 10px;
+    }
+  }
+}

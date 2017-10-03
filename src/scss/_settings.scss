@@ -1,0 +1,102 @@
+
+/* ===================================
+ * Setting file:
+ * This file holds all global settings utilized by multiple sites.
+ * The updated file includes only the global mixin's and includes.
+ * All site specific mixin's are include at the **TOP** of the style.scss to the particular site they are used in.
+ *
+ */
+//@import "compass/css3";
+
+/* ===================================
+ * Bootstrap Breaks
+ */
+$xsBreak : 480px ;
+$smBreak : 767px ;
+$mdBreak : 992px ;
+$lrgBreak : 1200px ;
+/* ===================================
+ * CRF colors:
+ * should be accessible from mutilple locations through out the sites
+ */
+$crf-color:#253746;
+
+/* ===================================
+ * FONTS:
+ */
+$font-maven: 'Maven Pro', sans-serif;
+$font-primary:Arial, "Helvetica Neue", Helvetica, sans-serif;
+$font-roman:'Univers LT W01 55 Roman';
+$font-cond:'UniversLTW01-57Condense 723821';
+$font-light:'Univers LT W02 45 Light';
+$font-light-cond:'UniversLTW01-47LightCn';
+$font-Bld-cond:'UniversLTW01-67BoldCn';
+$font-semi-Bld:'Univers LT W01 65 Bold';
+// TCT
+$font-tct-light:'DINNextW01-CondensedLig';
+$font-tct-med:'DINNextW01-CondensedMed';
+$font-tct-reg:'DINNextW01-CondensedReg';
+$font-tct-bold:'DINNextW01-CondensedBol';
+$font-tct-light-noncond:'DIN Next W01 Light';
+$font-tct-reg-noncond:'DIN Next W01 Regular';
+$font-tct-med-noncond:'DIN Next W01 Medium';
+//TCT 2015 (require specific styling with typography.com so mixin created) use sass include to use
+@mixin typography2015($type){
+  font-family: 'Gotham SSm A', 'Gotham SSm B';
+  @if $type == 'bold' {
+    font-weight: 700;
+    font-style: normal;
+  }@else if $type == 'ital' {
+    font-weight: 400;
+    font-style: italic;
+  } @else if $type == 'lite' {
+    font-weight: 300;
+    font-style: normal;
+  } @else if $type == 'med' {
+    font-weight: 500;
+    font-style: normal;
+  } @else if $type == 'bold-ital' {
+    font-weight: 700;
+    font-style: italic;
+  } @else {
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+// Pulse
+$font-pulse:'Sabon LT W01 Roman';
+$font-pulse-ital:'Sabon LT W01 Italic';
+$font-pulse-bold:'Sabon LT W01 Bold';
+$font-pulse-bold-ital:'SabonLTW01-BoldItalic';
+
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
