@@ -4,7 +4,7 @@ A simple React Faculty Filter
 With Search, Filter by lastname and country
 and optional modal pop up
 
-##<a href="http://demo.artsir.com/react_faculty/dist/">Demo</a>
+**<a href="http://demo.artsir.com/react_faculty/dist/">Demo</a>**
 
 ## Getting Started
 
