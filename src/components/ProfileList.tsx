@@ -24,8 +24,6 @@ const ProfileList = ({ data,  activeLetter } : {data: Array<ProfileType>,  activ
 
     const paginatedData: Array<ProfileType> = createPagination(filteredData)
 
-    console.log(5, paginatedData)
-
     return (
         <>
             <Grid templateColumns={["1fr", " 1fr 1fr", "1fr 1fr 1fr"]} gap={6}>
