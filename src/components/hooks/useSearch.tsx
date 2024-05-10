@@ -39,11 +39,13 @@ export const useSearch = () => {
 }
 
 
-export const Search = ({ inputProps, buttonProps, onSubmit }: {inputProps: object, buttonProps: object}) => {
+export const Search = ({ inputProps, buttonProps, onSubmit, reset }: {inputProps: object, buttonProps: object}) => {
     return (
         <Box key={"searchInput"}>
-
-            <form onSubmit={onSubmit}>
+            <form onSubmit={(e)=>{
+                for(let fn of reset){fn()}
+                onSubmit(e)
+            }}>
             <InputGroup borderColor={"purple"}>
                 <Input type={"text"} name={"search"} placeholder={"Search"} {...inputProps} borderRadius={"0px"} />
                 <InputRightAddon {...buttonProps} padding={"0px"} backgroundColor={"purple"} borderRadius={"0px"}>

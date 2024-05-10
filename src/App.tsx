@@ -43,10 +43,10 @@ export default function Faculty() {
         resetCountry()
     }, [activeRegion])
 
-    useEffect(() => {
-        resetCountry()
-        resetLetter()
-    }, [activeInputSearch])
+    // useEffect(() => {
+    //     resetCountry()
+    //     resetLetter()
+    // }, [activeInputSearch])
 
     useEffect(() => {
         resetActiveInput()
@@ -67,7 +67,7 @@ export default function Faculty() {
                         <SelectRegion />
                     </Box>
                     <Box flex={"1 1 23%"} minW={"200px"}>
-                        <Search {...searchProps} />
+                        <Search {...searchProps} reset={[resetCountry, resetLetter]} />
                     </Box>
                     <Box>
                         <SelectCountry {...countryProps} data={allProfiles} />
