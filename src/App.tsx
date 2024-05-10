@@ -22,7 +22,7 @@ export default function Faculty() {
         const response = await fetch("https://artsir.com/faculty")
         const result = await response.json()
         setAllProfiles(result)
-        setFilteredProfiles(result)
+
     }
 
     const filters = [regionFilter(activeRegion), searchFilter(activeInputSearch)]

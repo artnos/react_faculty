@@ -9,7 +9,7 @@ export const useSearch = () => {
     const searchProps = {
         inputProps: {
             onChange: (e: React.ChangeEvent ) => {
-                setInputSearch((e.target as HTMLInputElement).value)
+                setInputSearch(e.currentTarget.value)
             },
             onKeyPress: (e:  React.KeyboardEvent<HTMLDivElement> ) => {
                if(e.key=== "Enter"){  setActiveInputSearch(inputSearch) }
