@@ -7,21 +7,13 @@ import { Pagination, usePagination } from "./hooks/usePagination.jsx"
 import {useEffect, useState} from "react";
 
 const ProfileList = ({ data,  activeLetter } : {data: Array<ProfileType>,  activeLetter: string}) => {
-
-
     const [paginationProps, createPagination, setPage] = usePagination()
-    const [filteredData, setFilteredData] = useState<ProfileType[]>([]);
-
+    
     useEffect(()=>{
         setPage(0);
-
     }, [data]);
 
-    useEffect(() => {
-         setFilteredData([...data.filter(lastNameFilter(activeLetter))])
-    }, [activeLetter, data]);
-
-
+    const filteredData = data.filter(lastNameFilter(activeLetter));
     const paginatedData: Array<ProfileType> = createPagination(filteredData)
 
     return (

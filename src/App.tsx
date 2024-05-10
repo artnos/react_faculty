@@ -13,7 +13,6 @@ import {Profile} from "./components/ProfileInterface.ts";
 //reset region
 export default function Faculty() {
     const [allProfiles, setAllProfiles] = useState<Profile[]>([])
-    const [filteredProfiles, setFilteredProfiles] = useState<Profile[]>([])
     const [SelectRegion, activeRegion] = useSelectRegion()
     const [searchProps, activeInputSearch, resetActiveInput] = useSearch()
     const [abcProps, activeLetter, resetLetter] = useSelectABC()
@@ -26,20 +25,20 @@ export default function Faculty() {
         setFilteredProfiles(result)
     }
 
+    const filters = [regionFilter(activeRegion), searchFilter(activeInputSearch)]
+    if (activeInputSearch === "") {
+        filters.push(countryFilter(activeCountry))
+    }
+    const filteredProfiles = allProfiles.filter(profile => filters.every(f => f(profile)))
+
+
     useEffect(() => {
         getData()
     }, [])
 
-    useEffect(() => {
-        const filters = [regionFilter(activeRegion), searchFilter(activeInputSearch)]
-        if (activeInputSearch === "") {
-
-            filters.push(countryFilter(activeCountry))
-        }
-        const filteredData = allProfiles.filter(profile => filters.every(f => f(profile)))
-        setFilteredProfiles(filteredData)
-    }, [activeLetter, activeInputSearch, activeCountry, activeRegion, allProfiles])
-
+    /*I need these useEffect because i need to reset the dropdown when other dropdown changes.
+    For example when they search i want to reset the country to no specifc country
+    * */
     useEffect(() => {
         resetCountry()
     }, [activeRegion])
