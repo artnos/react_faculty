@@ -5,7 +5,7 @@ import {Search2Icon} from "@chakra-ui/icons"
 export const useSearch = () => {
     const [inputSearch, setInputSearch] = useState("")
     const [activeInputSearch, setActiveInputSearch] = useState("")
-    const callback = [];
+
 
     const searchProps = {
         inputProps: {
@@ -27,9 +27,6 @@ export const useSearch = () => {
         onSubmit: (e)=> {
             e.preventDefault();
             setActiveInputSearch(inputSearch)
-            for(let fn of callback){
-                fn()
-            }
         }
     }
 
@@ -38,7 +35,7 @@ export const useSearch = () => {
         setInputSearch("")
     }
 
-    return [searchProps, activeInputSearch, reset, callback] as const
+    return [searchProps, activeInputSearch, reset] as const
 }
 
 
