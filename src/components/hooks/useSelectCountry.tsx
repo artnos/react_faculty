@@ -21,9 +21,7 @@ export const useSelectCountry = () => {
 export const SelectCountry = ({ data, activeCountry, setActiveCountry }: {
     data: Profile[], activeCountry:string, setActiveCountry: (s:string)=>void
 }) => {
-    if (data == null) {
-        return <Box>Loading...</Box>
-    }
+
 
     const countries = useMemo(()=>{
         return data
