@@ -70,7 +70,7 @@ export default function Faculty() {
                         <Search {...searchProps} reset={[resetCountry, resetLetter]} />
                     </Box>
                     <Box>
-                        <SelectCountry {...countryProps} data={allProfiles} />
+                        <SelectCountry {...countryProps} data={allProfiles}  />
                     </Box>
                 </Flex>
                 <Box mt={"10px"}>

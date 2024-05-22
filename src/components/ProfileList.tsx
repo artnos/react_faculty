@@ -1,10 +1,9 @@
-
 import Profile from "./Profile"
-import {Profile as ProfileType } from "./ProfileInterface.ts";
-import { Box,  Grid } from "@chakra-ui/react"
-import { lastNameFilter } from "./filters/filter.js"
-import { Pagination, usePagination } from "./hooks/usePagination.jsx"
-import {useEffect, useState} from "react";
+import {Profile as ProfileType} from "./ProfileInterface.ts";
+import {Box, Grid} from "@chakra-ui/react"
+import {lastNameFilter} from "./filters/filter.js"
+import {Pagination, usePagination} from "./hooks/usePagination.jsx"
+import {useEffect} from "react";
 
 const ProfileList = ({ data,  activeLetter } : {data: Array<ProfileType>,  activeLetter: string}) => {
     const [paginationProps, createPagination, setPage] = usePagination()

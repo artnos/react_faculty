@@ -1,5 +1,5 @@
 import {Box, Button, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react"
-import {useState} from "react"
+import {useMemo, useState} from "react"
 import {ChevronDownIcon} from "@chakra-ui/icons"
 import {Profile} from "../ProfileInterface.ts";
 
@@ -25,15 +25,17 @@ export const SelectCountry = ({ data, activeCountry, setActiveCountry }: {
         return <Box>Loading...</Box>
     }
 
-    const countries = data
-        .reduce((acc: Array<string>, cur : Profile) : Array<string>  => {
-            if (acc.includes(cur.country.trim())) {
-                return acc
-            } else {
-                return [...acc, cur.country.trim()]
-            }
-        }, [])
-        .sort()
+    const countries = useMemo(()=>{
+        return data
+            .reduce((acc: Array<string>, cur : Profile) : Array<string>  => {
+                if (acc.includes(cur.country.trim())) {
+                    return acc
+                } else {
+                    return [...acc, cur.country.trim()]
+                }
+            }, [])
+            .sort()
+    }, [])
 
     return (
         <Box>

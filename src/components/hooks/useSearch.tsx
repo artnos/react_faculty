@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {Box, Input,Button, InputGroup, InputRightAddon} from "@chakra-ui/react"
+import {Box, Button, Input, InputGroup, InputRightAddon} from "@chakra-ui/react"
 import {Search2Icon} from "@chakra-ui/icons"
 
 export const useSearch = () => {
@@ -24,7 +24,7 @@ export const useSearch = () => {
             },
             cursor: "pointer",
         },
-        onSubmit: (e)=> {
+        onSubmit: (e:React.FormEvent<HTMLFormElement> )=> {
             e.preventDefault();
             setActiveInputSearch(inputSearch)
         }
@@ -39,11 +39,11 @@ export const useSearch = () => {
 }
 
 
-export const Search = ({ inputProps, buttonProps, onSubmit, reset }: {inputProps: object, buttonProps: object}) => {
+export const Search = ({ inputProps, buttonProps, onSubmit, reset }: {inputProps: object, buttonProps: object, onSubmit: (e:React.FormEvent<HTMLFormElement> )=>void, reset: Array<any>  }) => {
     return (
         <Box key={"searchInput"}>
             <form onSubmit={(e)=>{
-                for(let fn of reset){fn()}
+                for(const fn of reset){fn()}
                 onSubmit(e)
             }}>
             <InputGroup borderColor={"purple"}>
