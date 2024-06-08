@@ -22,10 +22,8 @@ export const SelectCountry = ({ data, activeCountry, setActiveCountry }: {
     data: Profile[], activeCountry:string, setActiveCountry: (s:string)=>void
 }) => {
 
-
     const countries = useMemo(()=>{
-        return data
-            .reduce((acc: Array<string>, cur : Profile) : Array<string>  => {
+        return data.reduce((acc: Array<string>, cur : Profile) : Array<string>  => {
                 if (acc.includes(cur.country.trim())) {
                     return acc
                 } else {
@@ -33,7 +31,8 @@ export const SelectCountry = ({ data, activeCountry, setActiveCountry }: {
                 }
             }, [])
             .sort()
-    }, [])
+    }, [data])
+
 
     return (
         <Box>

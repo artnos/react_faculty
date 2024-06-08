@@ -2,7 +2,7 @@
 
 ## Deployed at
 
-
+https://artnos.github.io/react_faculty/
 
 ### Github Pages
 
